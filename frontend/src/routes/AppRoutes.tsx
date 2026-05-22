@@ -1,8 +1,15 @@
-import { Route, Routes } from 'react-router-dom';
-import { AppLayout } from '../layouts/AppLayout';
-import { Dashboard } from '../pages/Dashboard';
-import { AlunosPage, DisciplinasPage, MatriculasPage, NotasPage, ProfessoresPage, TurmasPage } from '../pages/CrudPages';
-import { RelatoriosPage } from '../pages/RelatoriosPage';
+import { Route, Routes } from "react-router-dom";
+import { AppLayout } from "../layouts/AppLayout";
+import { Dashboard } from "../pages/Dashboard";
+import {
+  AlunosPage,
+  DisciplinasPage,
+  MatriculasPage,
+  NotasPage,
+  ProfessoresPage,
+  TurmasPage,
+} from "../pages/CrudPages";
+import { RelatoriosPage } from "../pages/RelatoriosPage";
 
 export function AppRoutes() {
   return (

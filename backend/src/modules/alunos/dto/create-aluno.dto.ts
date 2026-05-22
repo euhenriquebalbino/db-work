@@ -1,4 +1,12 @@
-import { IsDateString, IsEmail, IsInt, IsNotEmpty, IsOptional, IsString, Length } from 'class-validator';
+import {
+  IsDateString,
+  IsEmail,
+  IsInt,
+  IsNotEmpty,
+  IsOptional,
+  IsString,
+  Length,
+} from "class-validator";
 
 export class CreateAlunoDto {
   @IsString() @IsNotEmpty() nome!: string;

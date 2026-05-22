@@ -3,7 +3,8 @@ GO
 USE SchoolGrades;
 GO
 
-CREATE TABLE dbo.turmas (
+CREATE TABLE dbo.turmas
+(
   id INT IDENTITY(1,1) CONSTRAINT pk_turmas PRIMARY KEY,
   nome NVARCHAR(80) NOT NULL,
   semestre NVARCHAR(20) NOT NULL,
@@ -13,7 +14,8 @@ CREATE TABLE dbo.turmas (
   CONSTRAINT uq_turmas_nome_periodo UNIQUE (nome, semestre, ano)
 );
 
-CREATE TABLE dbo.alunos (
+CREATE TABLE dbo.alunos
+(
   id INT IDENTITY(1,1) CONSTRAINT pk_alunos PRIMARY KEY,
   nome NVARCHAR(120) NOT NULL,
   cpf VARCHAR(14) NOT NULL,
@@ -29,7 +31,8 @@ CREATE TABLE dbo.alunos (
   CONSTRAINT fk_alunos_turmas FOREIGN KEY (turma_id) REFERENCES dbo.turmas(id)
 );
 
-CREATE TABLE dbo.professores (
+CREATE TABLE dbo.professores
+(
   id INT IDENTITY(1,1) CONSTRAINT pk_professores PRIMARY KEY,
   nome NVARCHAR(120) NOT NULL,
   cpf VARCHAR(14) NOT NULL,
@@ -42,7 +45,8 @@ CREATE TABLE dbo.professores (
   CONSTRAINT uq_professores_email UNIQUE (email)
 );
 
-CREATE TABLE dbo.disciplinas (
+CREATE TABLE dbo.disciplinas
+(
   id INT IDENTITY(1,1) CONSTRAINT pk_disciplinas PRIMARY KEY,
   nome NVARCHAR(120) NOT NULL,
   carga_horaria INT NOT NULL CONSTRAINT ck_disciplinas_carga CHECK (carga_horaria > 0),
@@ -53,7 +57,8 @@ CREATE TABLE dbo.disciplinas (
   CONSTRAINT fk_disciplinas_professores FOREIGN KEY (professor_id) REFERENCES dbo.professores(id)
 );
 
-CREATE TABLE dbo.matriculas (
+CREATE TABLE dbo.matriculas
+(
   id INT IDENTITY(1,1) CONSTRAINT pk_matriculas PRIMARY KEY,
   aluno_id INT NOT NULL,
   disciplina_id INT NOT NULL,
@@ -63,7 +68,8 @@ CREATE TABLE dbo.matriculas (
   CONSTRAINT fk_matriculas_disciplinas FOREIGN KEY (disciplina_id) REFERENCES dbo.disciplinas(id)
 );
 
-CREATE TABLE dbo.notas (
+CREATE TABLE dbo.notas
+(
   id INT IDENTITY(1,1) CONSTRAINT pk_notas PRIMARY KEY,
   matricula_id INT NOT NULL,
   nota1 DECIMAL(5,2) NOT NULL,
@@ -78,7 +84,8 @@ CREATE TABLE dbo.notas (
   CONSTRAINT ck_notas_intervalo CHECK (nota1 BETWEEN 0 AND 10 AND nota2 BETWEEN 0 AND 10 AND nota3 BETWEEN 0 AND 10)
 );
 
-CREATE TABLE dbo.audit_logs (
+CREATE TABLE dbo.audit_logs
+(
   id BIGINT IDENTITY(1,1) CONSTRAINT pk_audit_logs PRIMARY KEY,
   tabela NVARCHAR(80) NOT NULL,
   operacao NVARCHAR(20) NOT NULL,

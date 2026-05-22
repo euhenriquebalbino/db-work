@@ -1,2 +1,2 @@
-import { CreateProfessorDto } from './create-professor.dto';
+import { CreateProfessorDto } from "./create-professor.dto";
 export class UpdateProfessorDto extends CreateProfessorDto {}

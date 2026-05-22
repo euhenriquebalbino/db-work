@@ -1,4 +1,4 @@
-import { IsInt, IsNumber, IsOptional, Max, Min } from 'class-validator';
+import { IsInt, IsNumber, IsOptional, Max, Min } from "class-validator";
 export class UpdateNotaDto {
   @IsOptional() @IsInt() matricula_id?: number;
   @IsNumber() @Min(0) @Max(10) nota1!: number;

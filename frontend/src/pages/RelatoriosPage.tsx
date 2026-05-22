@@ -44,7 +44,7 @@ export function RelatoriosPage() {
           Exportar PDF
         </Button>
       </Stack>
-      <Paper sx={{ bgcolor: 'background.default' }}>
+      <Paper sx={{ bgcolor: "background.default" }}>
         <Table size="small">
           <TableHead>
             <TableRow>
